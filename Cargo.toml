@@ -2,6 +2,7 @@
 name = "file_sync"
 version = "0.1.0"
 authors = ["jvo203 <chris.zapart@nao.ac.jp>"]
+edition = "2018"
 
 [dependencies]
 notify = "*"

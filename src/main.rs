@@ -1,5 +1,3 @@
-extern crate notify;
-
 use notify::{RecommendedWatcher, Watcher, RecursiveMode};
 use std::sync::mpsc::channel;
 use std::time::Duration;
@@ -10,11 +8,11 @@ fn watch() -> notify::Result<()> {
 
     // Automatically select the best implementation for your platform.
     // You can also access each implementation directly e.g. INotifyWatcher.
-    let mut watcher: RecommendedWatcher = try!(Watcher::new(tx, Duration::from_secs(2)));
+    let mut watcher: RecommendedWatcher = r#try!(Watcher::new(tx, Duration::from_secs(2)));
 
     // Add a path to be watched. All files and directories at that path and
     // below will be monitored for changes.
-    try!(watcher.watch("/home/chris", RecursiveMode::Recursive));
+    r#try!(watcher.watch("/home/chris", RecursiveMode::Recursive));
 
     // This is a simple loop, but you may want to use more complex logic here,
     // for example to handle I/O.
