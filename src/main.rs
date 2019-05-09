@@ -1,4 +1,4 @@
-use chrono::{DateTime, Local};
+use chrono::Local;
 use notify::{RecommendedWatcher, RecursiveMode, Watcher};
 use std::sync::mpsc::channel;
 use std::time::Duration;
@@ -20,11 +20,11 @@ fn watch() -> notify::Result<()> {
     loop {
         match rx.recv() {
             Ok(event) => {
-                let now: DateTime<Local> = Local::now();
+                let now = Local::now();
                 println!("[{}] {:?}", now, event);
             }
             Err(e) => {
-                let now: DateTime<Local> = Local::now();
+                let now = Local::now();
                 println!("[{}] watch error: {:?}", now, e);
             }
         }
